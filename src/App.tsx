@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router';
+import MainLayout from './layouts/MainLayout';
+import TasksPage from './pages/TasksPage';
 
 export default function App() {
   return (
@@ -6,22 +8,9 @@ export default function App() {
       <Route
         path="/"
         element={
-          <main>
-            <p className="font-semibold text-[#277367]">
-              Your workspace, ready.
-            </p>
-            <h1>Task Flow</h1>
-            <p>A fresh start for a more organized day.</p>
-          </main>
-        }
-      />
-      <Route
-        path="*"
-        element={
-          <main>
-            <h1>Page not found</h1>
-            <a href="/">Back to home</a>
-          </main>
+          <MainLayout>
+            <TasksPage />
+          </MainLayout>
         }
       />
     </Routes>
