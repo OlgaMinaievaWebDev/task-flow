@@ -1,29 +1,17 @@
 import { Route, Routes } from 'react-router';
+import MainLayout from './layouts/MainLayout';
+import TasksPage from './pages/TasksPage';
+import SettingsPage from './pages/SettingsPage';
+import HomePage from './pages/HomePage';
 
 export default function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <main>
-            <p className="font-semibold text-[#277367]">
-              Your workspace, ready.
-            </p>
-            <h1>Task Flow</h1>
-            <p>A fresh start for a more organized day.</p>
-          </main>
-        }
-      />
-      <Route
-        path="*"
-        element={
-          <main>
-            <h1>Page not found</h1>
-            <a href="/">Back to home</a>
-          </main>
-        }
-      />
+      <Route element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+      </Route>
     </Routes>
   );
 }
