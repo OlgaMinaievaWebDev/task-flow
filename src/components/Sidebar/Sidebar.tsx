@@ -36,7 +36,7 @@ function Sidebar() {
     );
   });
   return (
-    <aside className="w-full shrink-0 border-b border-slate-200 bg-slate-50 p-4 md:w-60 md:border-r md:border-b-0 md:p-6">
+    <aside className="w-full shrink-0 border-b border-slate-200 bg-slate-50 p-4 md:border-r md:border-b-0 md:p-6">
       <h2 className="text-xl font-semibold">TaskFlow+</h2>
       <nav aria-label="Sections" className="mt-6">
         <ul className="flex flex-col gap-4">{renderNavItems}</ul>

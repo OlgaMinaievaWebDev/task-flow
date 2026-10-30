@@ -1,17 +1,16 @@
-import type { ReactNode } from 'react';
 import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
+import { Outlet } from 'react-router';
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
-function MainLayout({ children }: MainLayoutProps) {
+function MainLayout() {
   return (
-    <div className="min-h-dvh flex flex-col md:flex-row">
+    <div className="grid min-h-screen grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)]">
       <Sidebar />
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0">
         <Header />
-        <main className="p-4 md:p-6">{children}</main>
+        <main className="p-4 md:p-6">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
