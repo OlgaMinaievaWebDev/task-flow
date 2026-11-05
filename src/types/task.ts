@@ -6,3 +6,5 @@ export interface Task {
   priority: 'low' | 'medium' | 'high';
   dueDate: string;
 }
+
+export type NewTask = Omit<Task, 'id'>;
