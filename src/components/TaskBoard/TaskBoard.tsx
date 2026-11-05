@@ -1,12 +1,15 @@
-import { mockTasks } from '../../data/mockTasks';
 import TaskColumn from '../TaskColumn/TaskColumn';
+import type { Task } from '../../types/task';
 
-const todoTasks = mockTasks.filter((task) => task.status === 'todo');
-const inProgressTasks = mockTasks.filter(
-  (task) => task.status === 'in-progress',
-);
-const doneTasks = mockTasks.filter((task) => task.status === 'done');
-function TaskBoard() {
+interface TaskBoardProps {
+  tasks: Task[];
+}
+
+function TaskBoard({ tasks }: TaskBoardProps) {
+  const todoTasks = tasks.filter((task) => task.status === 'todo');
+  const inProgressTasks = tasks.filter((task) => task.status === 'in-progress');
+  const doneTasks = tasks.filter((task) => task.status === 'done');
+
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
       <TaskColumn title="To Do" tasks={todoTasks} status="todo" />
